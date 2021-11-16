@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,7 +38,8 @@ public class StudentController {
     }
 
     @ApiOperation("删除")
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/management/{id}")
+    @PreAuthorize("hasRole('admin')")
     public void deleteStudentById(@PathVariable Long id) {
         studentApplicationService.deleteStudentById(id);
     }
@@ -51,4 +53,5 @@ public class StudentController {
                 .collect(Collectors.toList());
     }
 
+    
 }

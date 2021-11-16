@@ -11,6 +11,7 @@ import io.swagger.annotations.ApiOperation;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,7 +40,7 @@ public class TeacherController {
     }
 
     @ApiOperation("删除老师")
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/management/{id}")
     public void deleteTeacherById(@PathVariable Long id) {
         teacherApplicationService.deleteTeacherById(id);
 
@@ -54,4 +55,10 @@ public class TeacherController {
                 .collect(Collectors.toList());
     }
 
+    @ApiOperation("为老师分配班级")
+    @PreAuthorize("hasRole('admin')")
+    @GetMapping("/management/{id}")
+    public void assignTeacherToClass(@PathVariable String id) {
+        //占位置
+    }
 }
