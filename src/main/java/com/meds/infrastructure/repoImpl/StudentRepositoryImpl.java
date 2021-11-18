@@ -3,6 +3,7 @@ package com.meds.infrastructure.repoImpl;
 import com.meds.domain.student.entity.StudentInfoDo;
 import com.meds.domain.student.entity.StudentRegisterDo;
 import com.meds.infrastructure.assembler.StudentMapper;
+import com.meds.infrastructure.entity.ClassInfoPo;
 import com.meds.infrastructure.entity.StudentInfoPo;
 import com.meds.infrastructure.repository.JpaStudentRepository;
 import com.meds.infrastructure.repository.StudentRepository;
@@ -41,5 +42,12 @@ public class StudentRepositoryImpl implements StudentRepository {
     public StudentInfoDo findStudentById(Long id) {
         Optional<StudentInfoPo> studentInfoPo = jpaStudentRepository.findById(id);
         return StudentMapper.MAPPER.toStudentInfoDo(studentInfoPo.get());
+    }
+
+    @Override
+    public void groupStudentByClassId(Long studentId, Long classId) {
+        StudentInfoPo studentInfoPo = new StudentInfoPo();
+
+
     }
 }

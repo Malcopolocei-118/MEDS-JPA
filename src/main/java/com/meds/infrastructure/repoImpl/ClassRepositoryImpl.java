@@ -28,4 +28,10 @@ public class ClassRepositoryImpl implements ClassRepository {
         ClassInfoPo classInfoPo = classInfo.get();
         return ClassMapper.MAPPER.toClassInfoDo(classInfoPo);
     }
+
+    @Override
+    public void save(ClassInfoDo classInfoDo) {
+        ClassInfoPo classInfoPo = ClassMapper.MAPPER.toClassInfoPo(classInfoDo);
+        jpaClassRepository.saveAndFlush(classInfoPo);
+    }
 }

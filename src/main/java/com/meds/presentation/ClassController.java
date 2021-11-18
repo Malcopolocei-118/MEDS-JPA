@@ -3,13 +3,11 @@ package com.meds.presentation;
 import com.meds.application.ClassApplicationService;
 import com.meds.application.dto.ClassInfoDto;
 import com.meds.application.dto.ClassRegisterDto;
-import com.meds.infrastructure.entity.ClassInfoPo;
 import com.meds.presentation.assembler.ClassMapper;
 import com.meds.presentation.vo.ClassInfoVo;
 import com.meds.presentation.vo.ClassRegisterVo;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,5 +48,11 @@ public class ClassController {
     public ClassInfoVo findClassById(@PathVariable Long id) {
         ClassInfoDto classInfoDto = classApplicationService.findClassById(id);
         return ClassMapper.MAPPER.toClassInfoVo(classInfoDto);
+    }
+
+    @ApiOperation("根据班级id和学生id分配学生到指定班级")
+    @GetMapping("/management/students/{classId}/{studentId}")
+    public void groupStudentByClassId(@PathVariable Long classId, @PathVariable Long studentId) {
+        classApplicationService.groupStudentByClassId(classId, studentId);
     }
 }

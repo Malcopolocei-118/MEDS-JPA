@@ -8,4 +8,6 @@ public interface ClassRepository {
     void saveClassInfo(ClassRegisterDo classRegisterDo);
 
     ClassInfoDo findClassById(Long id);
+
+    void save(ClassInfoDo classInfoDo);
 }

@@ -59,5 +59,11 @@ public class StudentController {
         StudentInfoDto studentInfoDto = studentApplicationService.findByStudentId(id);
         return StudentMapper.MAPPER.toStudentInfoVo(studentInfoDto);
     }
+
+    @ApiOperation("为学生分班")
+    @GetMapping("/management/classes/{studentId}, {classId}")
+    public void groupStudentByClassId(@PathVariable Long studentId, @PathVariable Long classId) {
+        studentApplicationService.groupStudentByClassId(studentId, classId);
+    }
     
 }

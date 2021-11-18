@@ -40,4 +40,10 @@ public class StudentApplicationService {
         StudentInfoDo studentInfoDo = studentDomainService.findStudentById(id);
         return StudentMapper.MAPPER.toStudentInfoDto(studentInfoDo);
     }
+
+    public void groupStudentByClassId(Long studentId, Long classId) {
+        //应该在业务层做学生班级的分配吧？尝试1：setStudentInfo的student_class_id字段，也许就能够自动关联了？
+
+        studentDomainService.groupStudentByClassId(studentId, classId);
+    }
 }

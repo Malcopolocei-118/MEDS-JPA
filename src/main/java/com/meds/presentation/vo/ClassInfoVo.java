@@ -31,8 +31,8 @@ public class ClassInfoVo {
 
     private Long avgScoreEnglish;
 
-    private List<StudentInfoPo> students;
+    private List<StudentInfoVo> students;
 
-    private List<TeacherInfoPo> teachers;
+    private List<TeacherInfoVo> teachers;
 
 }

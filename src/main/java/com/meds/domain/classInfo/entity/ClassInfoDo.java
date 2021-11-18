@@ -1,6 +1,8 @@
 package com.meds.domain.classInfo.entity;
 
 import com.meds.common.ClassLevelEnum;
+import com.meds.domain.student.entity.StudentInfoDo;
+import com.meds.domain.student.entity.TeacherInfoDo;
 import com.meds.infrastructure.entity.StudentInfoPo;
 import com.meds.infrastructure.entity.TeacherInfoPo;
 import java.util.List;
@@ -31,8 +33,8 @@ public class ClassInfoDo {
 
     private Long avgScoreEnglish;
 
-    private List<StudentInfoPo> students;
+    private List<StudentInfoDo> students;
 
-    private List<TeacherInfoPo> teachers;
+    private List<TeacherInfoDo> teachers;
 
 }

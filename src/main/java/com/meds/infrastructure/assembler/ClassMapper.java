@@ -17,4 +17,6 @@ public interface ClassMapper {
     ClassInfoPo toClassInfoPo(ClassRegisterDo classRegisterDo);
 
     ClassInfoDo toClassInfoDo(ClassInfoPo classInfoPo);
+
+    ClassInfoPo toClassInfoPo(ClassInfoDo classInfoDo);
 }

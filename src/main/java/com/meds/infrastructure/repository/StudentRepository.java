@@ -14,4 +14,6 @@ public interface StudentRepository {
     List<StudentInfoDo> findAllUngrouping(Boolean isToClass);
 
     StudentInfoDo findStudentById(Long id);
+
+    void groupStudentByClassId(Long studentId, Long classId);
 }

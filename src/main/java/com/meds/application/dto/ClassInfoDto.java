@@ -41,7 +41,7 @@ public class ClassInfoDto {
 
     private Long avgScoreEnglish;
 
-    private List<StudentInfoPo> students;
+    private List<StudentInfoDto> students;
 
-    private List<TeacherInfoPo> teachers;
+    private List<TeacherInfoDto> teachers;
 }

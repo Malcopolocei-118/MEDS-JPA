@@ -18,6 +18,11 @@ public class ClassDomainService {
     }
 
     public ClassInfoDo findClassById(Long id) {
+        //返回在这里处理
         return classRepository.findClassById(id);
+    }
+
+    public void save(ClassInfoDo classInfoDo) {
+        classRepository.save(classInfoDo);
     }
 }

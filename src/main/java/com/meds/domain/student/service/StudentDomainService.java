@@ -29,4 +29,8 @@ public class StudentDomainService {
     public StudentInfoDo findStudentById(Long id) {
         return studentRepository.findStudentById(id);
     }
+
+    public void groupStudentByClassId(Long studentId, Long classId) {
+        studentRepository.groupStudentByClassId(studentId, classId);
+    }
 }
