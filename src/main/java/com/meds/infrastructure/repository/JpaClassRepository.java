@@ -1,4 +1,8 @@
 package com.meds.infrastructure.repository;
 
-public interface JpaClassRepository extends JpaTeacherRepository{
+import com.meds.infrastructure.entity.ClassInfoPo;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface JpaClassRepository extends JpaRepository<ClassInfoPo, Long> {
+
 }

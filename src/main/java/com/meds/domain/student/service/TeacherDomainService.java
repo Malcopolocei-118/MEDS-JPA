@@ -25,4 +25,8 @@ public class TeacherDomainService {
     public List<TeacherInfoDo> findAllUngrouping() {
         return teacherRepository.findAllUngrouping(false);
     }
+
+    public TeacherInfoDo findTeacherById(Long id) {
+        return teacherRepository.findTeacherById(id);
+    }
 }

@@ -25,4 +25,8 @@ public class StudentDomainService {
     public List<StudentInfoDo> findAllUngrouping() {
        return studentRepository.findAllUngrouping(false);
     }
+
+    public StudentInfoDo findStudentById(Long id) {
+        return studentRepository.findStudentById(id);
+    }
 }

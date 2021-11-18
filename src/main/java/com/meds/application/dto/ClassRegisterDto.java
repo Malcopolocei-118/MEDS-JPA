@@ -18,5 +18,4 @@ public class ClassRegisterDto {
 
     private ClassLevelEnum classLevel;
 
-
 }

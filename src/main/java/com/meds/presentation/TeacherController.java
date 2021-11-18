@@ -3,6 +3,7 @@ package com.meds.presentation;
 import com.meds.application.TeacherApplicationService;
 import com.meds.application.dto.TeacherInfoDto;
 import com.meds.application.dto.TeacherRegisterDto;
+import com.meds.infrastructure.entity.TeacherInfoPo;
 import com.meds.presentation.assembler.TeacherMapper;
 import com.meds.presentation.vo.StudentInfoVo;
 import com.meds.presentation.vo.TeacherInfoVo;
@@ -60,5 +61,12 @@ public class TeacherController {
     @GetMapping("/management/{id}")
     public void assignTeacherToClass(@PathVariable String id) {
         //占位置
+    }
+
+    @ApiOperation("通过id查找老师")
+    @GetMapping("/{id}")
+    public TeacherInfoVo findTeacherById(@PathVariable Long id) {
+        TeacherInfoDto teacherInfoDto = teacherApplicationService.findTeacherById(id);
+        return TeacherMapper.MAPPER.toTeacherInfoVo(teacherInfoDto);
     }
 }

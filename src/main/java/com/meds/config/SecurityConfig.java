@@ -2,6 +2,7 @@ package com.meds.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,34 +13,35 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    //重写该方法以存储用户
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication()
-                .withUser("manager_leon").roles("admin").password("admin").and()
-                .withUser("customer_lisa").roles("user").password("user");
+        auth.inMemoryAuthentication().passwordEncoder(new BCryptPasswordEncoder())
+                .withUser("admin").password(new BCryptPasswordEncoder().encode("12345678")).roles("ADMIN", "USER").and()
+                .withUser("user").password(new BCryptPasswordEncoder().encode("123456")).roles("USER");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/student/management").hasRole("admin")
-                .antMatchers("/teachers/management").hasRole("admin")
-                .antMatchers("/classes/management").hasRole("admin")
-                .anyRequest().authenticated()
+                .antMatchers("/students/management/*").hasRole("ADMIN")//hasRole("admin")
+                .antMatchers("/teachers/management/*").hasRole("ADMIN")
+                .antMatchers("/classes/management").hasRole("ADMIN")
+                .anyRequest().permitAll()
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll()
                 .and()
-                .logout().permitAll();
+                .httpBasic()
+                .and()
+                .csrf().disable();
     }
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    PasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
     //登陆配置
 

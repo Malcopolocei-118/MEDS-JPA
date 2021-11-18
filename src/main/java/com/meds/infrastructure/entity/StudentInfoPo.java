@@ -18,13 +18,13 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Table(name = "student_info")
 @Entity
 public class StudentInfoPo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "student_id")
     private Long id;
 
     private String name;
@@ -39,7 +39,6 @@ public class StudentInfoPo {
 
     private String className;
 
-    
     private Boolean grouped = false;
 
 }

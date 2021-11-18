@@ -12,4 +12,6 @@ public interface StudentRepository {
     void deleteById(Long studentId);
 
     List<StudentInfoDo> findAllUngrouping(Boolean isToClass);
+
+    StudentInfoDo findStudentById(Long id);
 }

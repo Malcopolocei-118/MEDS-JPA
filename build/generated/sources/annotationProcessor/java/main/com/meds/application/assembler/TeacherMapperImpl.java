@@ -9,7 +9,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-11-14T21:57:02+0800",
+    date = "2021-11-18T15:02:09+0800",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_201 (Oracle Corporation)"
 )
 public class TeacherMapperImpl implements TeacherMapper {
@@ -33,6 +33,26 @@ public class TeacherMapperImpl implements TeacherMapper {
 
     @Override
     public TeacherInfoDto toTeacherInfoDto(TeacherInfoDo teacherInfoDo) {
+        if ( teacherInfoDo == null ) {
+            return null;
+        }
+
+        TeacherInfoDto teacherInfoDto = new TeacherInfoDto();
+
+        teacherInfoDto.setId( teacherInfoDo.getId() );
+        teacherInfoDto.setName( teacherInfoDo.getName() );
+        teacherInfoDto.setGender( teacherInfoDo.getGender() );
+        teacherInfoDto.setSubject( teacherInfoDo.getSubject() );
+        teacherInfoDto.setSalary( teacherInfoDo.getSalary() );
+        teacherInfoDto.setAge( teacherInfoDo.getAge() );
+        teacherInfoDto.setClassId( teacherInfoDo.getClassId() );
+        teacherInfoDto.setClassName( teacherInfoDo.getClassName() );
+
+        return teacherInfoDto;
+    }
+
+    @Override
+    public TeacherInfoDto toTeacherInfoDo(TeacherInfoDo teacherInfoDo) {
         if ( teacherInfoDo == null ) {
             return null;
         }

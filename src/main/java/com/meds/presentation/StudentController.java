@@ -39,7 +39,6 @@ public class StudentController {
 
     @ApiOperation("删除")
     @DeleteMapping("/management/{id}")
-    @PreAuthorize("hasRole('admin')")
     public void deleteStudentById(@PathVariable Long id) {
         studentApplicationService.deleteStudentById(id);
     }
@@ -53,5 +52,12 @@ public class StudentController {
                 .collect(Collectors.toList());
     }
 
+    @ApiOperation("根据id查找学生")
+    @GetMapping("/{id}")
+    public StudentInfoVo findStudentById(@PathVariable Long id) {
+        //占位置
+        StudentInfoDto studentInfoDto = studentApplicationService.findByStudentId(id);
+        return StudentMapper.MAPPER.toStudentInfoVo(studentInfoDto);
+    }
     
 }

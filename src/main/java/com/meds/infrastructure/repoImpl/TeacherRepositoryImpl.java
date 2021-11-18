@@ -7,6 +7,7 @@ import com.meds.infrastructure.entity.TeacherInfoPo;
 import com.meds.infrastructure.repository.JpaTeacherRepository;
 import com.meds.infrastructure.repository.TeacherRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -34,5 +35,11 @@ public class TeacherRepositoryImpl implements TeacherRepository {
         return teacherInfoPos.stream()
                 .map(TeacherMapper.MAPPER::toTeacherInfoDo)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public TeacherInfoDo findTeacherById(Long id) {
+        Optional<TeacherInfoPo> teacherInfo = jpaTeacherRepository.findById(id);
+        return TeacherMapper.MAPPER.toTeacherInfoDo(teacherInfo.get());
     }
 }

@@ -31,4 +31,9 @@ public class TeacherApplicationService {
                 .map(TeacherMapper.MAPPER::toTeacherInfoDto)
                 .collect(Collectors.toList());
     }
+
+    public TeacherInfoDto findTeacherById(Long id) {
+        TeacherInfoDo teacherInfoDo = teacherDomainService.findTeacherById(id);
+        return TeacherMapper.MAPPER.toTeacherInfoDo(teacherInfoDo);
+    }
 }

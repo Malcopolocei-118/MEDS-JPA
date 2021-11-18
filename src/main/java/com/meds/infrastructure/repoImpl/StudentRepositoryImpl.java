@@ -7,6 +7,7 @@ import com.meds.infrastructure.entity.StudentInfoPo;
 import com.meds.infrastructure.repository.JpaStudentRepository;
 import com.meds.infrastructure.repository.StudentRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -34,5 +35,11 @@ public class StudentRepositoryImpl implements StudentRepository {
         return studentInfoPos.stream()
                 .map(StudentMapper.MAPPER::toStudentInfoDo)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public StudentInfoDo findStudentById(Long id) {
+        Optional<StudentInfoPo> studentInfoPo = jpaStudentRepository.findById(id);
+        return StudentMapper.MAPPER.toStudentInfoDo(studentInfoPo.get());
     }
 }

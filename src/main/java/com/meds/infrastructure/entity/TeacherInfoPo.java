@@ -2,6 +2,7 @@ package com.meds.infrastructure.entity;
 
 import com.meds.common.GenderEnum;
 import com.meds.common.SubjectEnum;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +18,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
 @Table(name = "teacher_info")
 @Entity
 public class
@@ -25,6 +25,7 @@ TeacherInfoPo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "teacher_id")
     private Long id;
 
     private String name;

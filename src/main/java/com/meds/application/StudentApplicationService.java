@@ -35,4 +35,9 @@ public class StudentApplicationService {
                 .map(StudentMapper.MAPPER::toStudentInfoDto)
                 .collect(Collectors.toList());
     }
+
+    public StudentInfoDto findByStudentId(Long id) {
+        StudentInfoDo studentInfoDo = studentDomainService.findStudentById(id);
+        return StudentMapper.MAPPER.toStudentInfoDto(studentInfoDo);
+    }
 }

@@ -18,4 +18,6 @@ public interface TeacherMapper {
     TeacherRegisterDo toTeacherRegisterDo(TeacherRegisterDto requestDto);
 
     TeacherInfoDto toTeacherInfoDto(TeacherInfoDo teacherInfoDo);
+
+    TeacherInfoDto toTeacherInfoDo(TeacherInfoDo teacherInfoDo);
 }

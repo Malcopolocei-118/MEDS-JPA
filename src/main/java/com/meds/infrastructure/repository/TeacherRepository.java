@@ -11,4 +11,6 @@ public interface TeacherRepository {
     void deleteById(Long id);
 
     List<TeacherInfoDo> findAllUngrouping(boolean isToClass);
+
+    TeacherInfoDo findTeacherById(Long id);
 }
