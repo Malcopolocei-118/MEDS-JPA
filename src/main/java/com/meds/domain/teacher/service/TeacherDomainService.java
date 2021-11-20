@@ -1,7 +1,7 @@
-package com.meds.domain.student.service;
+package com.meds.domain.teacher.service;
 
-import com.meds.domain.student.entity.TeacherInfoDo;
-import com.meds.domain.student.entity.TeacherRegisterDo;
+import com.meds.domain.teacher.entity.TeacherInfoDo;
+import com.meds.domain.teacher.entity.TeacherRegisterDo;
 import com.meds.infrastructure.repository.TeacherRepository;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -17,7 +17,6 @@ public class TeacherDomainService {
         teacherRepository.saveTeacher(registerDo);
     }
 
-
     public void deleteTeacherById(Long id) {
         teacherRepository.deleteById(id);
     }
@@ -28,5 +27,17 @@ public class TeacherDomainService {
 
     public TeacherInfoDo findTeacherById(Long id) {
         return teacherRepository.findTeacherById(id);
+    }
+
+    public void saveTeacherInfo(TeacherInfoDo teacherInfoDo) {
+        teacherRepository.saveTeacherInfo(teacherInfoDo);
+    }
+
+    public List<TeacherInfoDo> findAll() {
+        return teacherRepository.findAll();
+    }
+
+    public void saveAll(List<TeacherInfoDo> teacherInfoDos) {
+        teacherRepository.saveAll(teacherInfoDos);
     }
 }

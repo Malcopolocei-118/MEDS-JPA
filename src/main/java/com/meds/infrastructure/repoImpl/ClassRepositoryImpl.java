@@ -32,6 +32,17 @@ public class ClassRepositoryImpl implements ClassRepository {
     @Override
     public void save(ClassInfoDo classInfoDo) {
         ClassInfoPo classInfoPo = ClassMapper.MAPPER.toClassInfoPo(classInfoDo);
-        jpaClassRepository.saveAndFlush(classInfoPo);
+        jpaClassRepository.save(classInfoPo);
+    }
+
+    @Override
+    public void deleteClassById(Long classId) {
+        jpaClassRepository.deleteById(classId);
+    }
+
+    @Override
+    public ClassInfoDo findClassByClassId(String classId) {
+        ClassInfoPo classInfoPo = jpaClassRepository.findByClassId(classId);
+        return ClassMapper.MAPPER.toClassInfoDo(classInfoPo);
     }
 }

@@ -9,7 +9,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-11-18T15:59:35+0800",
+    date = "2021-11-20T10:20:54+0800",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_201 (Oracle Corporation)"
 )
 public class StudentMapperImpl implements StudentMapper {
@@ -24,7 +24,6 @@ public class StudentMapperImpl implements StudentMapper {
 
         studentRegisterDo.setName( registerDo.getName() );
         studentRegisterDo.setAge( registerDo.getAge() );
-        studentRegisterDo.setGrade( registerDo.getGrade() );
         studentRegisterDo.setGender( registerDo.getGender() );
 
         return studentRegisterDo;
@@ -39,9 +38,9 @@ public class StudentMapperImpl implements StudentMapper {
         StudentInfoDto studentInfoDto = new StudentInfoDto();
 
         studentInfoDto.setId( studentInfoDo.getId() );
+        studentInfoDto.setStudentId( studentInfoDo.getStudentId() );
         studentInfoDto.setName( studentInfoDo.getName() );
         studentInfoDto.setAge( studentInfoDo.getAge() );
-        studentInfoDto.setGrade( studentInfoDo.getGrade() );
         studentInfoDto.setGender( studentInfoDo.getGender() );
         studentInfoDto.setClassId( studentInfoDo.getClassId() );
         studentInfoDto.setClassName( studentInfoDo.getClassName() );

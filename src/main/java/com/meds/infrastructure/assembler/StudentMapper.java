@@ -16,4 +16,6 @@ public interface StudentMapper {
     StudentInfoPo toStudentRegisterDo(StudentRegisterDo registerDo);
 
     StudentInfoDo toStudentInfoDo(StudentInfoPo studentInfoPo);
+
+    StudentInfoPo toStudentInfoPo(StudentInfoDo studentInfoDo);
 }

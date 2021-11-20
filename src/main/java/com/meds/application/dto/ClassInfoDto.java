@@ -25,13 +25,15 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ClassInfoDto {
 
-    private Long id;
+    private Long Id;
+
+    private String classId;
 
     private String className;
 
-    private Integer studentSize = 0;
+    private Integer studentSize;
 
-    private Integer teacherSize = 0;
+    private Integer teacherSize;
 
     private ClassLevelEnum classLevel;
 

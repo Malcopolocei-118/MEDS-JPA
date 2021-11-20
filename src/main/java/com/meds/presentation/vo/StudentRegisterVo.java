@@ -27,11 +27,6 @@ public class StudentRegisterVo {
     private Integer age;
 
     @NotNull
-    @Min(1)
-    @ApiModelProperty("学生年级")
-    private Integer grade;
-
-    @NotNull
     @ApiModelProperty("学生性别")
     private GenderEnum gender;
 

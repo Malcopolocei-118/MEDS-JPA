@@ -17,8 +17,6 @@ public class StudentRegisterDto {
 
     private Integer age;
 
-    private Integer grade;
-
     private GenderEnum gender;
 
     private Integer classNo;

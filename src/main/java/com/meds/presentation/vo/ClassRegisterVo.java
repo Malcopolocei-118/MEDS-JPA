@@ -1,6 +1,7 @@
 package com.meds.presentation.vo;
 
 import com.meds.common.ClassLevelEnum;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,6 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class ClassRegisterVo {
 
+    @NotNull
     private String className;
 
     private ClassLevelEnum classLevel;

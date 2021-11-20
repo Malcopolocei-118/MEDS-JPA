@@ -19,7 +19,7 @@ import lombok.Setter;
 public class TeacherRegisterVo {
     @NotNull
     @ApiModelProperty("教师姓名")
-    private String name;
+    private String teacherName;
 
     @NotNull
     @Min(1)

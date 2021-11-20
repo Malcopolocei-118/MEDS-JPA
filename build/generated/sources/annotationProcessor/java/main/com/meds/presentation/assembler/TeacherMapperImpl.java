@@ -10,7 +10,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-11-18T15:59:35+0800",
+    date = "2021-11-20T10:20:54+0800",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_201 (Oracle Corporation)"
 )
 public class TeacherMapperImpl implements TeacherMapper {
@@ -23,7 +23,7 @@ public class TeacherMapperImpl implements TeacherMapper {
 
         TeacherRegisterDto teacherRegisterDto = new TeacherRegisterDto();
 
-        teacherRegisterDto.setName( requestVo.getName() );
+        teacherRegisterDto.setTeacherName( requestVo.getTeacherName() );
         teacherRegisterDto.setAge( requestVo.getAge() );
         teacherRegisterDto.setGender( requestVo.getGender() );
         teacherRegisterDto.setSubject( requestVo.getSubject() );
@@ -41,13 +41,15 @@ public class TeacherMapperImpl implements TeacherMapper {
         TeacherInfoVo teacherInfoVo = new TeacherInfoVo();
 
         teacherInfoVo.setId( teacherInfoDto.getId() );
-        teacherInfoVo.setName( teacherInfoDto.getName() );
+        teacherInfoVo.setTeacherId( teacherInfoDto.getTeacherId() );
+        teacherInfoVo.setTeacherName( teacherInfoDto.getTeacherName() );
         teacherInfoVo.setGender( teacherInfoDto.getGender() );
         teacherInfoVo.setSubject( teacherInfoDto.getSubject() );
         teacherInfoVo.setSalary( teacherInfoDto.getSalary() );
-        teacherInfoVo.setGrouped( teacherInfoDto.getGrouped() );
+        teacherInfoVo.setAge( teacherInfoDto.getAge() );
         teacherInfoVo.setClassId( teacherInfoDto.getClassId() );
         teacherInfoVo.setClassName( teacherInfoDto.getClassName() );
+        teacherInfoVo.setGrouped( teacherInfoDto.getGrouped() );
 
         return teacherInfoVo;
     }

@@ -10,4 +10,8 @@ public interface ClassRepository {
     ClassInfoDo findClassById(Long id);
 
     void save(ClassInfoDo classInfoDo);
+
+    void deleteClassById(Long classId);
+
+    ClassInfoDo findClassByClassId(String classId);
 }

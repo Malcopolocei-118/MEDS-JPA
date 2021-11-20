@@ -1,7 +1,7 @@
 package com.meds.infrastructure.repository;
 
-import com.meds.domain.student.entity.TeacherInfoDo;
-import com.meds.domain.student.entity.TeacherRegisterDo;
+import com.meds.domain.teacher.entity.TeacherInfoDo;
+import com.meds.domain.teacher.entity.TeacherRegisterDo;
 import java.util.List;
 
 public interface TeacherRepository {
@@ -13,4 +13,10 @@ public interface TeacherRepository {
     List<TeacherInfoDo> findAllUngrouping(boolean isToClass);
 
     TeacherInfoDo findTeacherById(Long id);
+
+    void saveTeacherInfo(TeacherInfoDo teacherInfoDo);
+
+    List<TeacherInfoDo> findAll();
+
+    void saveAll(List<TeacherInfoDo> teacherInfoDos);
 }

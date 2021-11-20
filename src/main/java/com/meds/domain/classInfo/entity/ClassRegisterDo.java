@@ -18,4 +18,6 @@ public class ClassRegisterDo {
 
     private ClassLevelEnum classLevel;
 
+    private String classId;
+
 }

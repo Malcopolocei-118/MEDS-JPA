@@ -1,6 +1,8 @@
 package com.meds.infrastructure.entity;
 
 import com.meds.common.ClassLevelEnum;
+import com.meds.domain.student.entity.StudentInfoDo;
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -20,6 +22,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
+import java.util.UUID;
 
 @Getter
 @Setter
@@ -31,12 +34,14 @@ public class ClassInfoPo {
 
     //班级id
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "class_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "class_id")
+    private String classId;
+
     //班级name
-    @Column(name = "name")
+    @Column(name = "class_name")
     private String className;
 
     //班级学生人数
@@ -59,17 +64,4 @@ public class ClassInfoPo {
     @Column(name = "avg_score_english")
     private Long avgScoreEnglish;
 
-    //List<student>
-    @OneToMany(targetEntity = StudentInfoPo.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "student_class_id")
-    private List<StudentInfoPo> students;
-
-    //List<Teacher>
-    @ManyToMany(targetEntity = ClassInfoPo.class, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "class_teacher_info",
-            joinColumns = @JoinColumn(name = "class_info_id"),
-            inverseJoinColumns = @JoinColumn(name = "teacher_info_id")
-    )
-    private List<TeacherInfoPo> teachers;
 }

@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface JpaClassRepository extends JpaRepository<ClassInfoPo, Long> {
 
+    ClassInfoPo findByClassId(String classId);
 }

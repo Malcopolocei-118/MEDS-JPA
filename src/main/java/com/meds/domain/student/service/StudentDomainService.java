@@ -30,7 +30,15 @@ public class StudentDomainService {
         return studentRepository.findStudentById(id);
     }
 
-    public void groupStudentByClassId(Long studentId, Long classId) {
-        studentRepository.groupStudentByClassId(studentId, classId);
+    public void saveStudentInfo(StudentInfoDo studentInfoDo) {
+        studentRepository.saveStudentInfo(studentInfoDo);
+    }
+
+    public List<StudentInfoDo> findAll() {
+        return studentRepository.findAll();
+    }
+
+    public void saveAll(List<StudentInfoDo> studentInfoDos) {
+        studentRepository.saveAll(studentInfoDos);
     }
 }

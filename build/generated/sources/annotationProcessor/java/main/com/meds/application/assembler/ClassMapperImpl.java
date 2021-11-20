@@ -8,14 +8,14 @@ import com.meds.common.GenderEnum;
 import com.meds.domain.classInfo.entity.ClassInfoDo;
 import com.meds.domain.classInfo.entity.ClassRegisterDo;
 import com.meds.domain.student.entity.StudentInfoDo;
-import com.meds.domain.student.entity.TeacherInfoDo;
+import com.meds.domain.teacher.entity.TeacherInfoDo;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-11-18T15:59:35+0800",
+    date = "2021-11-20T10:20:54+0800",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_201 (Oracle Corporation)"
 )
 public class ClassMapperImpl implements ClassMapper {
@@ -43,6 +43,7 @@ public class ClassMapperImpl implements ClassMapper {
         ClassInfoDto classInfoDto = new ClassInfoDto();
 
         classInfoDto.setId( classInfoDo.getId() );
+        classInfoDto.setClassId( classInfoDo.getClassId() );
         classInfoDto.setClassName( classInfoDo.getClassName() );
         classInfoDto.setStudentSize( classInfoDo.getStudentSize() );
         classInfoDto.setTeacherSize( classInfoDo.getTeacherSize() );
@@ -64,9 +65,9 @@ public class ClassMapperImpl implements ClassMapper {
         StudentInfoDto studentInfoDto = new StudentInfoDto();
 
         studentInfoDto.setId( studentInfoDo.getId() );
+        studentInfoDto.setStudentId( studentInfoDo.getStudentId() );
         studentInfoDto.setName( studentInfoDo.getName() );
         studentInfoDto.setAge( studentInfoDo.getAge() );
-        studentInfoDto.setGrade( studentInfoDo.getGrade() );
         studentInfoDto.setGender( studentInfoDo.getGender() );
         studentInfoDto.setClassId( studentInfoDo.getClassId() );
         studentInfoDto.setClassName( studentInfoDo.getClassName() );
@@ -96,13 +97,15 @@ public class ClassMapperImpl implements ClassMapper {
         TeacherInfoDto teacherInfoDto = new TeacherInfoDto();
 
         teacherInfoDto.setId( teacherInfoDo.getId() );
-        teacherInfoDto.setName( teacherInfoDo.getName() );
+        teacherInfoDto.setTeacherId( teacherInfoDo.getTeacherId() );
+        teacherInfoDto.setTeacherName( teacherInfoDo.getTeacherName() );
         teacherInfoDto.setGender( teacherInfoDo.getGender() );
         teacherInfoDto.setSubject( teacherInfoDo.getSubject() );
         teacherInfoDto.setSalary( teacherInfoDo.getSalary() );
         teacherInfoDto.setAge( teacherInfoDo.getAge() );
         teacherInfoDto.setClassId( teacherInfoDo.getClassId() );
         teacherInfoDto.setClassName( teacherInfoDo.getClassName() );
+        teacherInfoDto.setGrouped( teacherInfoDo.getGrouped() );
 
         return teacherInfoDto;
     }

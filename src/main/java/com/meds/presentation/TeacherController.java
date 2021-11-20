@@ -44,7 +44,6 @@ public class TeacherController {
     @DeleteMapping("/management/{id}")
     public void deleteTeacherById(@PathVariable Long id) {
         teacherApplicationService.deleteTeacherById(id);
-
     }
 
     @ApiOperation("查看未分班级的教师")
@@ -54,13 +53,6 @@ public class TeacherController {
         return teacherDtos.stream()
                 .map(TeacherMapper.MAPPER::toTeacherInfoVo)
                 .collect(Collectors.toList());
-    }
-
-    @ApiOperation("为老师分配班级")
-    @PreAuthorize("hasRole('admin')")
-    @GetMapping("/management/{id}")
-    public void assignTeacherToClass(@PathVariable String id) {
-        //占位置
     }
 
     @ApiOperation("通过id查找老师")

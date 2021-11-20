@@ -2,14 +2,14 @@ package com.meds.infrastructure.assembler;
 
 import com.meds.common.GenderEnum;
 import com.meds.common.SubjectEnum;
-import com.meds.domain.student.entity.TeacherInfoDo;
-import com.meds.domain.student.entity.TeacherRegisterDo;
+import com.meds.domain.teacher.entity.TeacherInfoDo;
+import com.meds.domain.teacher.entity.TeacherRegisterDo;
 import com.meds.infrastructure.entity.TeacherInfoPo;
 import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-11-18T15:59:35+0800",
+    date = "2021-11-20T10:20:54+0800",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_201 (Oracle Corporation)"
 )
 public class TeacherMapperImpl implements TeacherMapper {
@@ -22,7 +22,8 @@ public class TeacherMapperImpl implements TeacherMapper {
 
         TeacherInfoPo teacherInfoPo = new TeacherInfoPo();
 
-        teacherInfoPo.setName( registerDo.getName() );
+        teacherInfoPo.setTeacherId( registerDo.getTeacherId() );
+        teacherInfoPo.setTeacherName( registerDo.getTeacherName() );
         teacherInfoPo.setGender( registerDo.getGender() );
         teacherInfoPo.setSubject( registerDo.getSubject() );
         teacherInfoPo.setSalary( registerDo.getSalary() );
@@ -40,16 +41,38 @@ public class TeacherMapperImpl implements TeacherMapper {
         TeacherInfoDo teacherInfoDo = new TeacherInfoDo();
 
         teacherInfoDo.setId( teacherInfoPo.getId() );
-        teacherInfoDo.setName( teacherInfoPo.getName() );
+        teacherInfoDo.setTeacherId( teacherInfoPo.getTeacherId() );
+        teacherInfoDo.setTeacherName( teacherInfoPo.getTeacherName() );
         teacherInfoDo.setGender( teacherInfoPo.getGender() );
         teacherInfoDo.setSubject( teacherInfoPo.getSubject() );
+        teacherInfoDo.setSalary( teacherInfoPo.getSalary() );
         teacherInfoDo.setAge( teacherInfoPo.getAge() );
-        if ( teacherInfoPo.getSalary() != null ) {
-            teacherInfoDo.setSalary( teacherInfoPo.getSalary().longValue() );
-        }
         teacherInfoDo.setClassId( teacherInfoPo.getClassId() );
         teacherInfoDo.setClassName( teacherInfoPo.getClassName() );
+        teacherInfoDo.setGrouped( teacherInfoPo.getGrouped() );
 
         return teacherInfoDo;
+    }
+
+    @Override
+    public TeacherInfoPo toTeacherInfoPo(TeacherInfoDo teacherInfoDo) {
+        if ( teacherInfoDo == null ) {
+            return null;
+        }
+
+        TeacherInfoPo teacherInfoPo = new TeacherInfoPo();
+
+        teacherInfoPo.setId( teacherInfoDo.getId() );
+        teacherInfoPo.setTeacherId( teacherInfoDo.getTeacherId() );
+        teacherInfoPo.setTeacherName( teacherInfoDo.getTeacherName() );
+        teacherInfoPo.setGender( teacherInfoDo.getGender() );
+        teacherInfoPo.setSubject( teacherInfoDo.getSubject() );
+        teacherInfoPo.setSalary( teacherInfoDo.getSalary() );
+        teacherInfoPo.setAge( teacherInfoDo.getAge() );
+        teacherInfoPo.setClassId( teacherInfoDo.getClassId() );
+        teacherInfoPo.setClassName( teacherInfoDo.getClassName() );
+        teacherInfoPo.setGrouped( teacherInfoDo.getGrouped() );
+
+        return teacherInfoPo;
     }
 }

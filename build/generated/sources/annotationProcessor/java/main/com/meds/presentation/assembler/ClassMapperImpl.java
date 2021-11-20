@@ -15,7 +15,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-11-18T15:59:35+0800",
+    date = "2021-11-20T10:20:54+0800",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_201 (Oracle Corporation)"
 )
 public class ClassMapperImpl implements ClassMapper {
@@ -43,6 +43,7 @@ public class ClassMapperImpl implements ClassMapper {
         ClassInfoVo classInfoVo = new ClassInfoVo();
 
         classInfoVo.setId( classInfoDto.getId() );
+        classInfoVo.setClassId( classInfoDto.getClassId() );
         classInfoVo.setClassName( classInfoDto.getClassName() );
         classInfoVo.setStudentSize( classInfoDto.getStudentSize() );
         classInfoVo.setTeacherSize( classInfoDto.getTeacherSize() );
@@ -64,9 +65,9 @@ public class ClassMapperImpl implements ClassMapper {
         StudentInfoVo studentInfoVo = new StudentInfoVo();
 
         studentInfoVo.setId( studentInfoDto.getId() );
+        studentInfoVo.setStudentId( studentInfoDto.getStudentId() );
         studentInfoVo.setName( studentInfoDto.getName() );
         studentInfoVo.setAge( studentInfoDto.getAge() );
-        studentInfoVo.setGrade( studentInfoDto.getGrade() );
         studentInfoVo.setGender( studentInfoDto.getGender() );
         studentInfoVo.setClassId( studentInfoDto.getClassId() );
         studentInfoVo.setClassName( studentInfoDto.getClassName() );
@@ -96,13 +97,15 @@ public class ClassMapperImpl implements ClassMapper {
         TeacherInfoVo teacherInfoVo = new TeacherInfoVo();
 
         teacherInfoVo.setId( teacherInfoDto.getId() );
-        teacherInfoVo.setName( teacherInfoDto.getName() );
+        teacherInfoVo.setTeacherId( teacherInfoDto.getTeacherId() );
+        teacherInfoVo.setTeacherName( teacherInfoDto.getTeacherName() );
         teacherInfoVo.setGender( teacherInfoDto.getGender() );
         teacherInfoVo.setSubject( teacherInfoDto.getSubject() );
         teacherInfoVo.setSalary( teacherInfoDto.getSalary() );
-        teacherInfoVo.setGrouped( teacherInfoDto.getGrouped() );
+        teacherInfoVo.setAge( teacherInfoDto.getAge() );
         teacherInfoVo.setClassId( teacherInfoDto.getClassId() );
         teacherInfoVo.setClassName( teacherInfoDto.getClassName() );
+        teacherInfoVo.setGrouped( teacherInfoDto.getGrouped() );
 
         return teacherInfoVo;
     }

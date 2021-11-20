@@ -15,20 +15,22 @@ public class TeacherInfoDto {
 
     private Long id;
 
-    private String name;
+    private String teacherId;
+
+    private String teacherName;
 
     private GenderEnum gender;
 
     private SubjectEnum subject;
 
-    private Long salary;
+    private Integer salary;
 
     private Integer age;
 
+    private String classId;
+
+    private String className;
+
     private Boolean grouped;
-
-    private Long classId;
-
-    private Long className;
 
 }

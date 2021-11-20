@@ -15,7 +15,7 @@ import lombok.Setter;
 @Builder
 public class TeacherRegisterDto {
 
-    private String name;
+    private String teacherName;
 
     private Integer age;
 

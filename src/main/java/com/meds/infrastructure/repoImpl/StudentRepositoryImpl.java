@@ -27,7 +27,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public void deleteById(Long studentId) {
-       jpaStudentRepository.deleteById(studentId);
+        jpaStudentRepository.deleteById(studentId);
     }
 
     @Override
@@ -45,9 +45,26 @@ public class StudentRepositoryImpl implements StudentRepository {
     }
 
     @Override
-    public void groupStudentByClassId(Long studentId, Long classId) {
-        StudentInfoPo studentInfoPo = new StudentInfoPo();
-
-
+    public void saveStudentInfo(StudentInfoDo studentInfoDo) {
+        StudentInfoPo studentInfoPo = StudentMapper.MAPPER.toStudentInfoPo(studentInfoDo);
+        jpaStudentRepository.save(studentInfoPo);
     }
+
+    @Override
+    public List<StudentInfoDo> findAll() {
+        List<StudentInfoPo> studentInfoPos = jpaStudentRepository.findAll();
+        return studentInfoPos.stream()
+                .map(StudentMapper.MAPPER::toStudentInfoDo)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void saveAll(List<StudentInfoDo> studentInfoDos) {
+        List<StudentInfoPo> studentInfoPos = studentInfoDos.stream()
+                .map(StudentMapper.MAPPER::toStudentInfoPo)
+                .collect(Collectors.toList());
+        jpaStudentRepository.saveAll(studentInfoPos);
+    }
+
+
 }

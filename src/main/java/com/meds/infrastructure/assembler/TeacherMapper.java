@@ -2,8 +2,8 @@ package com.meds.infrastructure.assembler;
 
 import com.meds.common.GenderEnum;
 import com.meds.common.SubjectEnum;
-import com.meds.domain.student.entity.TeacherInfoDo;
-import com.meds.domain.student.entity.TeacherRegisterDo;
+import com.meds.domain.teacher.entity.TeacherInfoDo;
+import com.meds.domain.teacher.entity.TeacherRegisterDo;
 import com.meds.infrastructure.entity.TeacherInfoPo;
 import org.mapstruct.Mapper;
 import org.mapstruct.ReportingPolicy;
@@ -18,4 +18,6 @@ public interface TeacherMapper {
     TeacherInfoPo toTeacherInfoPo(TeacherRegisterDo registerDo);
 
     TeacherInfoDo toTeacherInfoDo(TeacherInfoPo teacherInfoPo);
+
+    TeacherInfoPo toTeacherInfoPo(TeacherInfoDo teacherInfoDo);
 }

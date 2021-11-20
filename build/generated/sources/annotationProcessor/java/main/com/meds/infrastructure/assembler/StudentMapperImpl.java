@@ -8,7 +8,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-11-18T15:59:35+0800",
+    date = "2021-11-20T10:20:54+0800",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_201 (Oracle Corporation)"
 )
 public class StudentMapperImpl implements StudentMapper {
@@ -21,9 +21,9 @@ public class StudentMapperImpl implements StudentMapper {
 
         StudentInfoPo studentInfoPo = new StudentInfoPo();
 
+        studentInfoPo.setStudentId( registerDo.getStudentId() );
         studentInfoPo.setName( registerDo.getName() );
         studentInfoPo.setAge( registerDo.getAge() );
-        studentInfoPo.setGrade( registerDo.getGrade() );
         studentInfoPo.setGender( registerDo.getGender() );
 
         return studentInfoPo;
@@ -38,14 +38,34 @@ public class StudentMapperImpl implements StudentMapper {
         StudentInfoDo studentInfoDo = new StudentInfoDo();
 
         studentInfoDo.setId( studentInfoPo.getId() );
+        studentInfoDo.setStudentId( studentInfoPo.getStudentId() );
         studentInfoDo.setName( studentInfoPo.getName() );
         studentInfoDo.setAge( studentInfoPo.getAge() );
-        studentInfoDo.setGrade( studentInfoPo.getGrade() );
         studentInfoDo.setGender( studentInfoPo.getGender() );
         studentInfoDo.setClassId( studentInfoPo.getClassId() );
         studentInfoDo.setClassName( studentInfoPo.getClassName() );
         studentInfoDo.setGrouped( studentInfoPo.getGrouped() );
 
         return studentInfoDo;
+    }
+
+    @Override
+    public StudentInfoPo toStudentInfoPo(StudentInfoDo studentInfoDo) {
+        if ( studentInfoDo == null ) {
+            return null;
+        }
+
+        StudentInfoPo studentInfoPo = new StudentInfoPo();
+
+        studentInfoPo.setId( studentInfoDo.getId() );
+        studentInfoPo.setStudentId( studentInfoDo.getStudentId() );
+        studentInfoPo.setName( studentInfoDo.getName() );
+        studentInfoPo.setAge( studentInfoDo.getAge() );
+        studentInfoPo.setGender( studentInfoDo.getGender() );
+        studentInfoPo.setClassId( studentInfoDo.getClassId() );
+        studentInfoPo.setClassName( studentInfoDo.getClassName() );
+        studentInfoPo.setGrouped( studentInfoDo.getGrouped() );
+
+        return studentInfoPo;
     }
 }

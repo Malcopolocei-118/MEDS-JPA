@@ -3,6 +3,7 @@ package com.meds.presentation.vo;
 import com.meds.common.GenderEnum;
 import com.meds.common.SubjectEnum;
 import javax.persistence.Access;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,18 +20,22 @@ public class TeacherInfoVo {
 
     private Long id;
 
-    private String name;
+    private String teacherId;
+
+    private String teacherName;
 
     private GenderEnum gender;
 
     private SubjectEnum subject;
 
-    private Long salary;
+    private Integer salary;
+
+    private Integer age;
+
+    private String classId;
+
+    private String className;
 
     private Boolean grouped;
-
-    private Long classId;
-
-    private Long className;
 
 }

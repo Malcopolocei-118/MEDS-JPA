@@ -1,4 +1,4 @@
-package com.meds.domain.student.entity;
+package com.meds.domain.teacher.entity;
 
 import com.meds.common.GenderEnum;
 import com.meds.common.SubjectEnum;
@@ -12,7 +12,10 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TeacherRegisterDo {
-    private String name;
+
+    private String teacherName;
+
+    private String teacherId;
 
     private Integer age;
 

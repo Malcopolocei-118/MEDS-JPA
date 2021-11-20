@@ -2,9 +2,7 @@ package com.meds.domain.classInfo.entity;
 
 import com.meds.common.ClassLevelEnum;
 import com.meds.domain.student.entity.StudentInfoDo;
-import com.meds.domain.student.entity.TeacherInfoDo;
-import com.meds.infrastructure.entity.StudentInfoPo;
-import com.meds.infrastructure.entity.TeacherInfoPo;
+import com.meds.domain.teacher.entity.TeacherInfoDo;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,11 +17,13 @@ public class ClassInfoDo {
 
     private Long id;
 
+    private String classId;
+
     private String className;
 
-    private Integer studentSize = 0;
+    private Integer studentSize;
 
-    private Integer teacherSize = 0;
+    private Integer teacherSize;
 
     private ClassLevelEnum classLevel;
 

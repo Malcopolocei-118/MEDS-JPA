@@ -1,7 +1,10 @@
-package com.meds.domain.student.entity;
+package com.meds.domain.teacher.entity;
 
 import com.meds.common.GenderEnum;
 import com.meds.common.SubjectEnum;
+import com.meds.domain.classInfo.entity.ClassInfoDo;
+import com.meds.infrastructure.entity.ClassInfoPo;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,23 +17,24 @@ import lombok.Setter;
 @NoArgsConstructor
 @Builder
 public class TeacherInfoDo {
-    
+
     private Long id;
 
-    private String name;
+    private String teacherId;
+
+    private String teacherName;
 
     private GenderEnum gender;
 
     private SubjectEnum subject;
 
+    private Integer salary;
+
     private Integer age;
 
-    private Long salary;
+    private String classId;
 
-    private Boolean isToClass;
+    private String className;
 
-    private Long classId;
-
-    private Long className;
-
+    private Boolean grouped;
 }

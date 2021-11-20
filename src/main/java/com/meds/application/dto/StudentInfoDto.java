@@ -16,15 +16,15 @@ public class StudentInfoDto {
 
     private Long id;
 
+    private String studentId;
+
     private String name;
 
     private Integer age;
 
-    private Integer grade;
-
     private GenderEnum gender;
 
-    private Integer classId;
+    private String classId;
 
     private String className;
 

@@ -25,4 +25,12 @@ public class ClassDomainService {
     public void save(ClassInfoDo classInfoDo) {
         classRepository.save(classInfoDo);
     }
+
+    public void deleteClassById(Long classId) {
+        classRepository.deleteClassById(classId);
+    }
+
+    public ClassInfoDo findClassByClassId(String classId) {
+        return classRepository.findClassByClassId(classId);
+    }
 }
