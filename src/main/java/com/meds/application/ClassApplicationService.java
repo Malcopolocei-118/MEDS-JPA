@@ -71,12 +71,7 @@ public class ClassApplicationService {
     public void removeStudentById(Long classId, Long studentId) {
         ClassInfoDo classInfoDo = classDomainService.findClassById(classId);
         StudentInfoDo studentInfoDo = studentDomainService.findStudentById(studentId);
-//        if (!studentInfoDo.getClassId().equals(classInfoDo.getClassId())) {
-//            throw new IllegalArgumentException();
-//        }
-        studentInfoDo.setClassId(null);
-        studentInfoDo.setClassName(null);
-        studentInfoDo.setGrouped(false);
+        studentInfoDo.setPropertiesToNull();
         classInfoDo.setStudentSize(classInfoDo.getStudentSize() - 1);
 
         classDomainService.save(classInfoDo);
@@ -87,12 +82,7 @@ public class ClassApplicationService {
     public void removeTeacherById(Long classId, Long teacherId) {
         ClassInfoDo classInfoDo = classDomainService.findClassById(classId);
         TeacherInfoDo teacherInfoDo = teacherDomainService.findTeacherById(teacherId);
-//        if (!teacherInfoDo.getClassId().equals(classInfoDo.getClassId())) {
-//             throw new IllegalArgumentException();
-//        }
-        teacherInfoDo.setClassId(null);
-        teacherInfoDo.setClassName(null);
-        teacherInfoDo.setGrouped(false);
+        teacherInfoDo.setPropertiesToNull();
         classInfoDo.setTeacherSize(classInfoDo.getTeacherSize() - 1);
 
         classDomainService.save(classInfoDo);
@@ -110,15 +100,10 @@ public class ClassApplicationService {
                 .collect(Collectors.toList());
         classDomainService.deleteClassById(classId);
         studentInfoDos.stream()
-                .peek(StudentInfoDo::setPropertiesWhenDeleteClass)
-                .peek(it -> it.setClassName(null))
-                .peek(it -> it.setGrouped(null))
-                .peek(it -> it.setGrouped(false))
+                .peek(StudentInfoDo::setPropertiesToNull)
                 .collect(Collectors.toList());
         teacherInfoDos.stream()
-                .peek(it -> it.setClassId(null))
-                .peek(it -> it.setClassName(null))
-                .peek(it -> it.setGrouped(false))
+                .peek(TeacherInfoDo::setPropertiesToNull)
                 .collect(Collectors.toList());
         studentDomainService.saveAll(studentInfoDos);
         teacherDomainService.saveAll(teacherInfoDos);

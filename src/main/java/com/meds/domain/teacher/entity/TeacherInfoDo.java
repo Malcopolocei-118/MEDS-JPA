@@ -38,5 +38,9 @@ public class TeacherInfoDo {
 
     private Boolean grouped;
 
-
+    public void setPropertiesToNull() {
+        className = null;
+        classId = null;
+        grouped = false;
+    }
 }
