@@ -34,7 +34,7 @@ public class StudentInfoDo {
 
     private Boolean grouped;
 
-    public void removeStudentFromClass() {
+    public void setPropertiesWhenDeleteClass() {
         className = null;
         classId = null;
         grouped = false;

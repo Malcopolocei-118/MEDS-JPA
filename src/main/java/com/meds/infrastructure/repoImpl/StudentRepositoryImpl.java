@@ -2,6 +2,8 @@ package com.meds.infrastructure.repoImpl;
 
 import com.meds.domain.student.entity.StudentInfoDo;
 import com.meds.domain.student.entity.StudentRegisterDo;
+import com.meds.exception.ExceptionCode;
+import com.meds.exception.ManagementExceptionCode;
 import com.meds.infrastructure.assembler.StudentMapper;
 import com.meds.infrastructure.entity.ClassInfoPo;
 import com.meds.infrastructure.entity.StudentInfoPo;
@@ -41,6 +43,9 @@ public class StudentRepositoryImpl implements StudentRepository {
     @Override
     public StudentInfoDo findStudentById(Long id) {
         Optional<StudentInfoPo> studentInfoPo = jpaStudentRepository.findById(id);
+        if (!studentInfoPo.isPresent()) {
+            throw new ManagementExceptionCode(ExceptionCode.STUDENT_NOT_FOUND);
+        }
         return StudentMapper.MAPPER.toStudentInfoDo(studentInfoPo.get());
     }
 

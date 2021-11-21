@@ -8,6 +8,8 @@ import com.meds.domain.student.entity.StudentInfoDo;
 import com.meds.domain.student.entity.StudentRegisterDo;
 import com.meds.domain.student.service.StudentDomainService;
 import com.meds.application.assembler.StudentMapper;
+import com.meds.exception.ExceptionCode;
+import com.meds.exception.ManagementExceptionCode;
 import com.meds.presentation.vo.StudentInfoVo;
 import java.util.List;
 import java.util.Optional;
@@ -31,6 +33,7 @@ public class StudentApplicationService {
         registerDo.setStudentId(UUID.randomUUID().toString());
         studentDomainService.saveStudent(registerDo);
     }
+
 
     public void deleteStudentById(Long id) {
         StudentInfoDo studentInfoDo = studentDomainService.findStudentById(id);

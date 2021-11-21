@@ -20,6 +20,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @AllArgsConstructor
@@ -66,6 +67,7 @@ public class ClassApplicationService {
         teacherDomainService.saveTeacherInfo(teacherInfoDo);
     }
 
+    @Transactional
     public void removeStudentById(Long classId, Long studentId) {
         ClassInfoDo classInfoDo = classDomainService.findClassById(classId);
         StudentInfoDo studentInfoDo = studentDomainService.findStudentById(studentId);
@@ -81,6 +83,7 @@ public class ClassApplicationService {
         studentDomainService.saveStudentInfo(studentInfoDo);
     }
 
+    @Transactional
     public void removeTeacherById(Long classId, Long teacherId) {
         ClassInfoDo classInfoDo = classDomainService.findClassById(classId);
         TeacherInfoDo teacherInfoDo = teacherDomainService.findTeacherById(teacherId);
@@ -96,6 +99,7 @@ public class ClassApplicationService {
         teacherDomainService.saveTeacherInfo(teacherInfoDo);
     }
 
+    @Transactional(rollbackFor=Exception.class)
     public void deleteClassById(Long classId) {
         ClassInfoDo classInfoDo = classDomainService.findClassById(classId);
         List<StudentInfoDo> studentInfoDos = studentDomainService.findAll().stream()
@@ -106,8 +110,9 @@ public class ClassApplicationService {
                 .collect(Collectors.toList());
         classDomainService.deleteClassById(classId);
         studentInfoDos.stream()
-                .peek(it -> it.setClassId(null))
+                .peek(StudentInfoDo::setPropertiesWhenDeleteClass)
                 .peek(it -> it.setClassName(null))
+                .peek(it -> it.setGrouped(null))
                 .peek(it -> it.setGrouped(false))
                 .collect(Collectors.toList());
         teacherInfoDos.stream()

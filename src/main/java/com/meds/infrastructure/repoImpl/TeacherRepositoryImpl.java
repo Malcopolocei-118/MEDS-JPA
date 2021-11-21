@@ -2,6 +2,8 @@ package com.meds.infrastructure.repoImpl;
 
 import com.meds.domain.teacher.entity.TeacherInfoDo;
 import com.meds.domain.teacher.entity.TeacherRegisterDo;
+import com.meds.exception.ExceptionCode;
+import com.meds.exception.ManagementExceptionCode;
 import com.meds.infrastructure.assembler.TeacherMapper;
 import com.meds.infrastructure.entity.TeacherInfoPo;
 import com.meds.infrastructure.repository.JpaTeacherRepository;
@@ -40,6 +42,9 @@ public class TeacherRepositoryImpl implements TeacherRepository {
     @Override
     public TeacherInfoDo findTeacherById(Long id) {
         Optional<TeacherInfoPo> teacherInfo = jpaTeacherRepository.findById(id);
+        if (!teacherInfo.isPresent()) {
+            throw new ManagementExceptionCode(ExceptionCode.TEACHER_NOT_FOUND);
+        }
         return TeacherMapper.MAPPER.toTeacherInfoDo(teacherInfo.get());
     }
 
