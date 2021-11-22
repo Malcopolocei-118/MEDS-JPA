@@ -3,6 +3,8 @@ package com.meds.infrastructure.entity;
 import com.meds.common.GenderEnum;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,6 +24,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "student_info")
+@Builder
 @Entity
 public class StudentInfoPo {
 
@@ -37,6 +40,7 @@ public class StudentInfoPo {
 
     private Integer age;
 
+    @Enumerated(EnumType.STRING)
     private GenderEnum gender;
 
     @Column(name = "class_id")

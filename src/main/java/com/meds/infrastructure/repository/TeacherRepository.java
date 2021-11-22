@@ -3,6 +3,7 @@ package com.meds.infrastructure.repository;
 import com.meds.domain.teacher.entity.TeacherInfoDo;
 import com.meds.domain.teacher.entity.TeacherRegisterDo;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
 public interface TeacherRepository {
 

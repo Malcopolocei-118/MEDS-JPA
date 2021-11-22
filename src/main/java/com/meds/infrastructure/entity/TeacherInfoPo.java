@@ -7,6 +7,8 @@ import java.util.Objects;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -39,8 +41,10 @@ public class TeacherInfoPo {
     @Column(name = "teacher_name")
     private String teacherName;
 
+    @Enumerated(EnumType.STRING)
     private GenderEnum gender;
 
+    @Enumerated(EnumType.STRING)
     private SubjectEnum subject;
 
     private Integer salary;

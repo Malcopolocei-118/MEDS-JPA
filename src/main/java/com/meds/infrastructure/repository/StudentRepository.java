@@ -4,6 +4,7 @@ import com.meds.domain.student.entity.StudentInfoDo;
 import com.meds.domain.student.entity.StudentRegisterDo;
 import com.meds.presentation.vo.StudentInfoVo;
 import java.util.List;
+import org.springframework.stereotype.Repository;
 
 public interface StudentRepository {
 

@@ -11,14 +11,16 @@ import com.meds.infrastructure.repository.TeacherRepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@AllArgsConstructor
 public class TeacherRepositoryImpl implements TeacherRepository {
 
     private final JpaTeacherRepository jpaTeacherRepository;
+
+    public TeacherRepositoryImpl(JpaTeacherRepository jpaTeacherRepository) {
+        this.jpaTeacherRepository = jpaTeacherRepository;
+    }
 
     @Override
     public void saveTeacher(TeacherRegisterDo registerDo) {
@@ -69,5 +71,4 @@ public class TeacherRepositoryImpl implements TeacherRepository {
                 .collect(Collectors.toList());
         jpaTeacherRepository.saveAll(teacherInfoPos);
     }
-
 }

@@ -2,6 +2,7 @@ package com.meds.infrastructure.repository;
 
 import com.meds.domain.classInfo.entity.ClassInfoDo;
 import com.meds.domain.classInfo.entity.ClassRegisterDo;
+import org.springframework.stereotype.Repository;
 
 public interface ClassRepository {
 
